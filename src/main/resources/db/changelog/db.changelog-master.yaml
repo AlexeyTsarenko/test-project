@@ -15,6 +15,9 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
+                  name: comment
+                  type: varchar(100)
+              - column:
                   name: amount
                   type: BIGINT
                   constraints:

@@ -30,7 +30,7 @@ public class FileReadService {
         JSONParser jsonParser = new JSONParser();
         JSONArray entities = null;
         try {
-            FileReader reader = new FileReader("fileToReads.json");
+            FileReader reader = new FileReader("fileToRead.json");
             Object obj = jsonParser.parse(reader);
              entities = (JSONArray) obj;
         } catch (IOException | org.json.simple.parser.ParseException e) {
@@ -51,6 +51,7 @@ public class FileReadService {
             object.setStatus("active");
             object.setReleaseDate(simpleDateFormat.parse((String)element.get("releaseDate")));
             object.setTotalPrice(object.getPrice()*object.getAmount());
+            object.setComment((String)element.get("comment"));
             list.add(object);
         }
         list.forEach(entityRepository::save);

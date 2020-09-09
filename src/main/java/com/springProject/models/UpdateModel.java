@@ -13,6 +13,9 @@ import java.util.Date;
 @AllArgsConstructor
 public class UpdateModel {
     Integer id;
+
+    String comment;
+
     Integer amount;
 
     Integer price;

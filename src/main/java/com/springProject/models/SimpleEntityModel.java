@@ -20,4 +20,6 @@ public class SimpleEntityModel {
     Integer price;
 
     Date releaseDate;
+
+    String comment;
 }

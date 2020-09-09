@@ -33,4 +33,8 @@ public class SimpleEntity {
     @NotNull
     @Column
     Date releaseDate;
+
+
+    @Column
+    String comment;
 }

@@ -76,6 +76,16 @@ public class EntityService {
         boolean nothingToUpdate = true;
         HistoryEntity historyEntity;
         List<HistoryEntity> historyEntityList = new ArrayList<>();
+        if (!(simpleEntity.getComment().equals(updateModel.getComment()))&&updateModel.getComment()!=null) {
+            historyEntity = new HistoryEntity();
+            historyEntity.setFieldName("comment");
+            historyEntity.setOldValue(simpleEntity.getComment());
+            historyEntity.setNewValue(updateModel.getComment());
+            simpleEntity.setComment(updateModel.getComment());
+            historyEntityList.add(historyEntity);
+            recalculation = true;
+            nothingToUpdate = false;
+        }
         if (!(simpleEntity.getAmount().equals(updateModel.getAmount()))&&updateModel.getAmount()!=null) {
             historyEntity = new HistoryEntity();
             historyEntity.setFieldName("amount");
