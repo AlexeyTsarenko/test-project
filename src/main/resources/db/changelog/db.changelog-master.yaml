@@ -1,0 +1,73 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.changelog-lesson1.yaml
+  - changeSet:
+      id: 1
+      author: AlexeyTsarenko
+      changes:
+        - createTable:
+            tableName: entities
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: amount
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: total_price
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: release_date
+                  type: DATE
+  - changeSet:
+      id: 2
+      author: AlexeyTsarenko
+      changes:
+        - createTable:
+            tableName: history
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: entity_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: field_name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: old_value
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: new_value
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
